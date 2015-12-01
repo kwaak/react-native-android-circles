@@ -4,7 +4,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.1.3'
+        classpath 'com.android.tools.build:gradle:1.5.0'
     }
 }
 
@@ -23,14 +23,17 @@ android {
     lintOptions {
         abortOnError false
     }
+    repositories {
+        maven { url "https://jitpack.io" }
+    }
 }
 
 repositories {
     mavenCentral()
-    maven { url "https://jitpack.io" }
 }
 
 dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     compile "com.facebook.react:react-native:0.15.+"
-    compile 'com.github.jakob-grabner:Circle-Progress-View:1.2.8'
+    compile "com.github.jakob-grabner:Circle-Progress-View:1.2.8"
 }

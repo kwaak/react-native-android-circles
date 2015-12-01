@@ -1,6 +1,4 @@
-package com.kwaak.react;
-
-import android.app.Activity;
+package com.kwaak.reacttwo;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
@@ -14,18 +12,12 @@ import java.util.Collections;
 import java.util.List;
 
 public class CirclesPackage implements ReactPackage {
-    private Activity mActivity = null;
-
-    public CirclesPackage(Activity activity){
-        mActivity = activity;
+    public CirclesPackage(){
     }
 
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactApplicationContext) {
         List<NativeModule> modules = new ArrayList<>();
-
-        modules.add(new CirclesModule(reactContext));
-
         return modules;
     }
 
@@ -37,7 +29,7 @@ public class CirclesPackage implements ReactPackage {
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
         return Arrays.<ViewManager>asList(
-                new CirclesManager(mActivity)
+                new CirclesManager()
         );
     }
 }
