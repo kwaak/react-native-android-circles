@@ -1,0 +1,22 @@
+{
+  "name": "react-native-android-circles",
+  "description": "A react native android package to show a circle progress view.",
+  "version": "0.1.0",
+  "main": "index.android.js",
+  "author": {
+    "name": "Kwaak"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:kwaak/react-native-android-circles.git"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "react-native": ">= 0.15.0"
+  },
+  "keywords": [
+    "react-component",
+    "react-native",
+    "android"
+  ]
+}
