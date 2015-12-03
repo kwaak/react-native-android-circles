@@ -1,5 +1,6 @@
 package com.kwaak.reacttwo;
 
+import android.graphics.Color;
 import android.support.annotation.Nullable;
 
 import com.facebook.infer.annotation.Assertions;
@@ -35,14 +36,20 @@ public class CirclesManager extends SimpleViewManager<CirclesView> {
         return new CirclesView(context);
     }
 
-    @ReactProp(name = "barColors", defaultInt = 0)
+    @ReactProp(name = "barColors")
     public void setBarColors(CirclesView view, ReadableArray val) {
         int[] vals = new int[val.size()];
         for(int i = 0; i < val.size(); i++) {
-            vals[i] = val.getInt(i);
+            vals[i] = Color.parseColor(val.getString(i));
         }
         view.setBarColor(vals);
     }
+
+    @ReactProp(name = "contourColor", defaultInt = 0)
+    public void setContourColor(CirclesView view, int val) {
+        view.setContourColor(val);
+    }
+
     @ReactProp(name = "barWidth", defaultInt = 0)
     public void setBarWidth(CirclesView view, int val) {
         view.setBarWidth(val);
@@ -56,11 +63,15 @@ public class CirclesManager extends SimpleViewManager<CirclesView> {
         view.setBlockScale(val);
     }
 
-    @ReactProp(name = "contourColor", defaultInt = 0)
-    public void setContourColor(CirclesView view, int val) {
-        view.setContourColor(val);
+    @ReactProp(name = "contourColor")
+    public void setContourColor(CirclesView view, @Nullable String val) {
+        view.setContourColor(Color.parseColor(val));
     }
 
+    @ReactProp(name = "textColor")
+    public void setTextColor(CirclesView view, @Nullable String val) {
+        view.setTextColor(Color.parseColor(val));
+    }
     @ReactProp(name = "contourSize", defaultFloat = 0)
     public void setContourSize(CirclesView view, float val) {
         view.setContourSize(val);
@@ -71,9 +82,9 @@ public class CirclesManager extends SimpleViewManager<CirclesView> {
         view.setDelayMillis(val);
     }
 
-    @ReactProp(name = "fillColor", defaultInt = 0)
-    public void setFillColor(CirclesView view, int val) {
-        view.setFillCircleColor(val);
+    @ReactProp(name = "fillColor")
+    public void setFillColor(CirclesView view, @Nullable String val) {
+        view.setFillCircleColor(Color.parseColor(val));
     }
 
     @ReactProp(name = "maxValue", defaultFloat = 0)
@@ -89,9 +100,9 @@ public class CirclesManager extends SimpleViewManager<CirclesView> {
             view.setValue(val);
     }
 
-    @ReactProp(name = "rimColor", defaultInt = 0)
-    public void setRimColor(CirclesView view, int val) {
-        view.setRimColor(val);
+    @ReactProp(name = "rimColor")
+    public void setRimColor(CirclesView view, @Nullable String val) {
+        view.setRimColor(Color.parseColor(val));
     }
 
     @ReactProp(name = "rimWidth", defaultInt = 0)
