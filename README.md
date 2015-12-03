@@ -82,18 +82,19 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
 ## Usage
 
 ```js
-var Circle = require('react-native-android-circles');
+var Circles = require('react-native-android-circles');
 
-  <Circle
+  <Circles
     style={{width: 250, height: 250}}}
     сontourColor="#f4f4f4"
     rimColor="#f4f4f4"
-    barColor={["#15e064", "#17aecc", "#15e064"]}
+    barColors={["#15e064", "#17aecc", "#15e064"]}
     value={90}
     maxValue={100}
     сontourSize={280}
     rimWidth={120}
     barWidth={100}
+    animated={true}
   />
 
 ```
