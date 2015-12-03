@@ -11,15 +11,18 @@ import com.facebook.react.uimanager.ThemedReactContext;
 
 import java.util.Map;
 
+import at.grabner.circleprogress.TextMode;
+
 public class CirclesManager extends SimpleViewManager<CirclesView> {
 
     public static final int COMMAND_SPIN = 1;
     public static final int COMMAND_STOPSPINNING = 2;
+    private boolean _animated;
 
     public CirclesManager() {
     }
 
-    public static final String REACT_CLASS = "RCTCircle";
+    public static final String REACT_CLASS = "RCTCircles";
 
     @Override
     public String getName() {
@@ -52,66 +55,111 @@ public class CirclesManager extends SimpleViewManager<CirclesView> {
     public void setBlockScale(CirclesView view, float val) {
         view.setBlockScale(val);
     }
+
     @ReactProp(name = "contourColor", defaultInt = 0)
     public void setContourColor(CirclesView view, int val) {
         view.setContourColor(val);
     }
+
     @ReactProp(name = "contourSize", defaultFloat = 0)
     public void setContourSize(CirclesView view, float val) {
         view.setContourSize(val);
     }
+
     @ReactProp(name = "delayMillis", defaultInt = 0)
     public void setDelayMillis(CirclesView view, int val) {
         view.setDelayMillis(val);
     }
+
     @ReactProp(name = "fillColor", defaultInt = 0)
     public void setFillColor(CirclesView view, int val) {
         view.setFillCircleColor(val);
     }
+
     @ReactProp(name = "maxValue", defaultFloat = 0)
     public void setMaxValue(CirclesView view, float val) {
         view.setMaxValue(val);
     }
+
+    @ReactProp(name = "value", defaultFloat = 0)
+    public void setValue(CirclesView view, float val) {
+        if(_animated)
+            view.setValueAnimated(val) ;
+        else
+            view.setValue(val);
+    }
+
     @ReactProp(name = "rimColor", defaultInt = 0)
     public void setRimColor(CirclesView view, int val) {
         view.setRimColor(val);
     }
+
     @ReactProp(name = "rimWidth", defaultInt = 0)
     public void setRimWidth(CirclesView view, int val) {
         view.setRimWidth(val);
     }
+
     @ReactProp(name = "spinSpeed", defaultFloat = 0)
     public void setSpinSpeed(CirclesView view, float val) {
         view.setSpinSpeed(val);
     }
+
     @ReactProp(name = "startAngle", defaultInt = 0)
     public void setStartAngle(CirclesView view, int val) {
         view.setStartAngle(val);
     }
+
     @ReactProp(name = "textScale", defaultFloat = 0)
     public void setTextScale(CirclesView view, float val) {
         view.setTextScale(val);
     }
+
     @ReactProp(name = "textSize", defaultInt = 0)
     public void setTextSize(CirclesView view, int val) {
         view.setTextSize(val);
     }
+
     @ReactProp(name = "unit")
-    public void setUnit(CirclesView view, String val) {
+    public void setUnit(CirclesView view, @Nullable String val) {
         view.setUnit(val);
     }
+
     @ReactProp(name = "unitScale", defaultFloat = 0)
     public void setUnitScale(CirclesView view, float val) {
         view.setUnitScale(val);
     }
+
+    @ReactProp(name = "text")
+    public void setText(CirclesView view, @Nullable String val) {
+        view.setText(val);
+    }
+
     @ReactProp(name = "unitSize", defaultInt = 0)
     public void setUnitSize(CirclesView view, int val) {
         view.setUnitSize(val);
     }
 
-/*android.graphics.Paint.Cap                              public void setBarStrokeCap(CirclesView view, )
-android.graphics.Shader                             public void setRimShader(CirclesView view, )
-android.graphics.Paint.Cap                              public void setSpinnerStrokeCap(CirclesView view, )*/
+    @ReactProp(name = "textMode")
+    public void setTextMode(CirclesView view, @Nullable String val) {
+        if(val.equalsIgnoreCase("text"))
+            view.setTextMode(TextMode.TEXT);
+        if(val.equalsIgnoreCase("value"))
+            view.setTextMode(TextMode.VALUE);
+        if(val.equalsIgnoreCase("percent"))
+            view.setTextMode(TextMode.PERCENT);
+    }
+
+    @ReactProp(name = "animated", defaultBoolean = false)
+    public void setAnimated(CirclesView view, boolean val) {
+        _animated = val;
+    }
+
+    /*
+        Not implemented:
+        android.graphics.Paint.Cap                              public void setBarStrokeCap(CirclesView view, )
+        android.graphics.Shader                             public void setRimShader(CirclesView view, )
+        android.graphics.Paint.Cap                              public void setSpinnerStrokeCap(CirclesView view, )
+    */
 
     @Override
     public Map<String,Integer> getCommandsMap() {

@@ -1,28 +1,56 @@
-var { requireNativeComponent, PropTypes, View } = require('react-native');
+'use strict';
 
-var iface = {
-    name: 'Circles',
-    propTypes: {
-    	...View.propTypes,
-    	barColors: PropTypes.array,
-		barWidth: PropTypes.number,
-		blockCount: PropTypes.number,
-		blockScale: PropTypes.number,
-		contourColor: PropTypes.number,
-		contourSize: PropTypes.number,
-		delayMillis: PropTypes.number,
-		fillColor: PropTypes.number,
-		maxValue: PropTypes.number,
-		rimColor: PropTypes.number,
-		rimWidth: PropTypes.number,
-		spinSpeed: PropTypes.number,
-		startAngle: PropTypes.number,
-		textScale: PropTypes.number,
-		textSize: PropTypes.number,
-		unit: PropTypes.string,
-		unitScale: PropTypes.number,
-		unitSize: PropTypes.number,
-    },
+var React = require('react-native');
+
+var { NativeModules, requireNativeComponent, PropTypes, View } = React;
+
+class CirclesAndroid extends React.Component {
+  spin() {
+    NativeModules.UIManager.dispatchViewManagerCommand(
+      React.findNodeHandle(this),
+      NativeModules.UIManager.RCTCircles.Commands.spin,
+      []
+    );
+  };
+
+  stopSpinning() {
+    NativeModules.UIManager.dispatchViewManagerCommand(
+      React.findNodeHandle(this),
+      UIManager.RCTCircles.Commands.stopSpinning,
+      []
+    );
+  };
+
+  render() {
+    return  <NativeCirclesAndroid {...this.props} />;
+  }
+}
+CirclesAndroid.propTypes = {
+  ...View.propTypes,
+  barColors: PropTypes.array,
+  barWidth: PropTypes.number,
+  blockCount: PropTypes.number,
+  blockScale: PropTypes.number,
+  contourColor: PropTypes.number,
+  contourSize: PropTypes.number,
+  delayMillis: PropTypes.number,
+  fillColor: PropTypes.number,
+  value: PropTypes.number,
+  maxValue: PropTypes.number,
+  rimColor: PropTypes.number,
+  rimWidth: PropTypes.number,
+  spinSpeed: PropTypes.number,
+  startAngle: PropTypes.number,
+  textScale: PropTypes.number,
+  textSize: PropTypes.number,
+  unit: PropTypes.string,
+  unitScale: PropTypes.number,
+  unitSize: PropTypes.number,
+  animated:  PropTypes.bool,
+  text: PropTypes.string,
+  textMode: PropTypes.oneOf(['text', 'value', 'percent']),
 };
 
-module.exports = requireNativeComponent('RCTCircles', iface);
+var NativeCirclesAndroid = requireNativeComponent('RCTCircles', CirclesAndroid);
+
+module.exports = CirclesAndroid;
