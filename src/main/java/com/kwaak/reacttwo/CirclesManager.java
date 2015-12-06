@@ -32,7 +32,6 @@ public class CirclesManager extends SimpleViewManager<CirclesView> {
 
     @Override
     public CirclesView createViewInstance(ThemedReactContext context) {
-        //CirclesView c = new CirclesView(context);
         return new CirclesView(context);
     }
 
@@ -43,11 +42,6 @@ public class CirclesManager extends SimpleViewManager<CirclesView> {
             vals[i] = Color.parseColor(val.getString(i));
         }
         view.setBarColor(vals);
-    }
-
-    @ReactProp(name = "contourColor", defaultInt = 0)
-    public void setContourColor(CirclesView view, int val) {
-        view.setContourColor(val);
     }
 
     @ReactProp(name = "barWidth", defaultInt = 0)
@@ -120,16 +114,6 @@ public class CirclesManager extends SimpleViewManager<CirclesView> {
         view.setStartAngle(val);
     }
 
-    @ReactProp(name = "textScale", defaultFloat = 0)
-    public void setTextScale(CirclesView view, float val) {
-        view.setTextScale(val);
-    }
-
-    @ReactProp(name = "textSize", defaultInt = 0)
-    public void setTextSize(CirclesView view, int val) {
-        view.setTextSize(val);
-    }
-
     @ReactProp(name = "unit")
     public void setUnit(CirclesView view, @Nullable String val) {
         view.setUnit(val);
@@ -140,14 +124,34 @@ public class CirclesManager extends SimpleViewManager<CirclesView> {
         view.setUnitScale(val);
     }
 
-    @ReactProp(name = "text")
-    public void setText(CirclesView view, @Nullable String val) {
-        view.setText(val);
+    @ReactProp(name = "unitVisible", defaultBoolean = false)
+    public void setUnitVisible(CirclesView view, boolean val) {
+        view.setUnitVisible(val);
+    }
+
+    @ReactProp(name = "unitColor")
+    public void setUnitColor(CirclesView view, @Nullable String val) {
+        view.setUnitColor(Color.parseColor(val));
     }
 
     @ReactProp(name = "unitSize", defaultInt = 0)
     public void setUnitSize(CirclesView view, int val) {
         view.setUnitSize(val);
+    }
+
+    @ReactProp(name = "textScale", defaultFloat = 0)
+    public void setTextScale(CirclesView view, float val) {
+        view.setTextScale(val);
+    }
+
+    @ReactProp(name = "textSize", defaultInt = 0)
+    public void setTextSize(CirclesView view, int val) {
+        view.setTextSize(val);
+    }
+
+    @ReactProp(name = "text")
+    public void setText(CirclesView view, @Nullable String val) {
+        view.setText(val);
     }
 
     @ReactProp(name = "textMode")
@@ -164,13 +168,6 @@ public class CirclesManager extends SimpleViewManager<CirclesView> {
     public void setAnimated(CirclesView view, boolean val) {
         _animated = val;
     }
-
-    /*
-        Not implemented:
-        android.graphics.Paint.Cap                              public void setBarStrokeCap(CirclesView view, )
-        android.graphics.Shader                             public void setRimShader(CirclesView view, )
-        android.graphics.Paint.Cap                              public void setSpinnerStrokeCap(CirclesView view, )
-    */
 
     @Override
     public Map<String,Integer> getCommandsMap() {

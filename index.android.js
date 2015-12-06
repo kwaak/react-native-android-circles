@@ -45,6 +45,7 @@ CirclesAndroid.propTypes = {
   textScale: PropTypes.number,
   textSize: PropTypes.number,
   unit: PropTypes.string,
+  unitVisible: PropTypes.bool,
   unitScale: PropTypes.number,
   unitSize: PropTypes.number,
   animated:  PropTypes.bool,
