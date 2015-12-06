@@ -12,11 +12,12 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "react-native": ">= 0.15.0"
+    "react-native": ">= 0.16.0"
   },
   "keywords": [
     "react-component",
     "react-native",
-    "android"
+    "android",
+    "progress bar"
   ]
 }
