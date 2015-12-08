@@ -1,6 +1,6 @@
 # Circle progress view for react-native android
 
-A react native android module to show a circle progress view based on Circle-Progress-View (https://github.com/jakob-grabner/Circle-Progress-View).
+A react native android module to show a circle progress view based on [Circle-Progress-View] (https://github.com/jakob-grabner/Circle-Progress-View).
 
 ## Setup
 
