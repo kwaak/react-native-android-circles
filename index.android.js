@@ -40,7 +40,6 @@ CirclesAndroid.propTypes = {
   maxValue: PropTypes.number,
   rimColor: PropTypes.string,
   rimWidth: PropTypes.number,
-  spinSpeed: PropTypes.number,
   startAngle: PropTypes.number,
   textScale: PropTypes.number,
   textSize: PropTypes.number,
@@ -52,6 +51,9 @@ CirclesAndroid.propTypes = {
   animated:  PropTypes.bool,
   text: PropTypes.string,
   textMode: PropTypes.oneOf(['text', 'value', 'percent']),
+  spinColor: PropTypes.string,
+  spinSpeed: PropTypes.number,
+  spinBarLength: PropTypes.number,
 };
 
 var NativeCirclesAndroid = requireNativeComponent('RCTCircles', CirclesAndroid);

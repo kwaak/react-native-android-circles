@@ -104,11 +104,6 @@ public class CirclesManager extends SimpleViewManager<CirclesView> {
         view.setRimWidth(val);
     }
 
-    @ReactProp(name = "spinSpeed", defaultFloat = 0)
-    public void setSpinSpeed(CirclesView view, float val) {
-        view.setSpinSpeed(val);
-    }
-
     @ReactProp(name = "startAngle", defaultInt = 0)
     public void setStartAngle(CirclesView view, int val) {
         view.setStartAngle(val);
@@ -167,6 +162,21 @@ public class CirclesManager extends SimpleViewManager<CirclesView> {
     @ReactProp(name = "animated", defaultBoolean = false)
     public void setAnimated(CirclesView view, boolean val) {
         _animated = val;
+    }
+
+    @ReactProp(name = "spinColor")
+    public void setSpinColor(CirclesView view, @Nullable String val) {
+        view.setSpinBarColor(Color.parseColor(val));
+    }
+
+    @ReactProp(name = "spinSpeed", defaultFloat = 10)
+    public void setSpinSpeed(CirclesView view, float val) {
+        view.setSpinSpeed(val);
+    }
+
+    @ReactProp(name = "spinBarLength", defaultFloat = 10)
+    public void setSpinBarLength(CirclesView view, float val) {
+        view.setSpinningBarLength(val);
     }
 
     @Override
