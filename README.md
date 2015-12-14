@@ -46,7 +46,7 @@ dependencies {
 * register module (in MainActivity.java)
 
 ```java
-import com.kwaak.react.CirclesPackage;  // <--- import
+import com.kwaak.reacttwo.CirclesPackage;  // <--- import
 
 public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
 
