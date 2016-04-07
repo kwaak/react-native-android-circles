@@ -33,7 +33,7 @@ public class CirclesManager extends SimpleViewManager<CircleProgressView> {
 
     @Override
     public CircleProgressView createViewInstance(ThemedReactContext context) {
-        return new CircleProgressView(context);
+        return new CircleProgressView(context, null);
     }
 
     @ReactProp(name = "barColors")
